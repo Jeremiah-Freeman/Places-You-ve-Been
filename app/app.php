@@ -5,27 +5,27 @@
 
     session_start();
 
-    if (empty($_SESSION['list_of_places'])) {
-        $_SESSION['list_of_places'] = array();
+    if (empty($_SESSION['list_of_cities'])) {
+        $_SESSION['list_of_cities'] = array();
     }
 
     $app = new Silex\Application();
 
-    $app->register(new Silex\Provider\TwigServiceProvider(), array() {
+    $app->register(new Silex\Provider\TwigServiceProvider(), array(
         'twig.path' => __DIR__.'/../views'
-    });
+    ));
 
-    $app->get("/", function use ($app) {
-        return $app['twig']->render('places.html.twig', array('tasks' => Place::getAll()));
+    $app->get("/", function() use ($app) {
+        return $app['twig']->render('places.html.twig', array('cities' => Place::getAll()));
     });
 
     $app->post("/places", function() use ($app) {
-        $place = new Place($_POST['description']);
-        $task->save();
-            return $app['twig']->render('create_place.html.twig', array('newtask' => $task));
+        $city = new Place($_POST['city']);
+        $city->save();
+            return $app['twig']->render('create_place.html.twig', array('newplace' => $city));
     });
 
-    $app->post("/delete_tasks", function() use ($app) {
+    $app->post("/delete_places", function() use ($app) {
         Place::deleteAll();
         return $app['twig']->render('delete_places.html.twig');
     });
