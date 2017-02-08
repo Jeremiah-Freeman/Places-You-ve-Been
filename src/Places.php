@@ -1,11 +1,25 @@
 <?php
     class Place
+
     {
             private $city;
+            private $length;
 
-            function __construct($city)
+            function __construct($city,$length)
             {
                 $this->city = $city;
+                $this->length = $length;
+            }
+
+            function setLength($new_length)
+            {
+                $this->length =  (string) $new_length;
+            }
+
+
+            function getLength()
+            {
+                return $this->length;
             }
 
             function setCity($new_city)
@@ -33,15 +47,5 @@
                 $_SESSION['list_of_cities'] = array();
             }
     }
-
-?>
-
-
-
-
-
-
-
-
 
 ?>

@@ -1,5 +1,6 @@
 <html>
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>Places You've Visited</title>
 </head>
     <body>
@@ -9,18 +10,24 @@
             <ul>
                 {% for city in cities %}
                     <li>{{ city.getCity }}</li>
+                    <li>{{ city.getLength }}</li>
                 {% endfor %}
             </ul>
         {% endif %}
 
         <form action="/places" method="post">
+
             <label for="city"> Enter a place you've been:</label>
-            <input id="city" type="text" name="city">
+            <input id="city" type="text" name="city"><br><br>
+
+            <label for="length"> How long were you there?</label>
+            <input id="length" type="text" name="length"><br><br>
 
             <button type="submit" name="button">submit</button>
         </form>
         <form action="/delete_places" method="post">
-            <button type="submit">clear list</button>
+
+            <button type="submit" class="btn-success">clear list</button>
         </form>
 
 </body>
