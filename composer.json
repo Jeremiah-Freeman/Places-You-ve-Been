@@ -1,6 +1,13 @@
 {
+<<<<<<< HEAD
     "require": {
         "silex/silex": "~1.1",
         "twig/twig":"~1.0"
     }
+=======
+  "require": {
+    "silex/silex": "~1.1",
+    "twig/twig": "~1.0"
+  }
+>>>>>>> cb145a3c73f3382dfdd6fe0d907a0d006fa02f69
 }

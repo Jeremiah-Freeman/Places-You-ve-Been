@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Places</title>
+</head>
+<body>
+    <h1>Places You've been</h1>
+    {% if places is not empty %}
+        <p>Here are all of the places that you've been</p>
+        <ul>
+            {% for place in places %}
+                <li>{{ place.city_name }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+    <form action='/add-places' method='post'>
+        <label for='place'>Enter a place</label>
+        <input id='place' name='place' type='text'>
+        <button type='submit'>Add Place</button>
+    </form>
+</body>
+</html>

@@ -7,6 +7,7 @@
 
     if (empty($_SESSION['list_of_cities'])) {
         $_SESSION['list_of_cities'] = array();
+
     }
 
     $app = new Silex\Application();
@@ -29,6 +30,7 @@
         Place::deleteAll();
         return $app['twig']->render('delete_places.html.twig');
     });
+
 
     return $app;
 ?>
